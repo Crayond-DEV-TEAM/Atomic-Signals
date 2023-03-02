@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import { Button } from '@mui/material'
+import "./App.css";
+import BaseTheme from "./theme";
+import RouterApp from "./router";
 
 function App() {
-
   return (
-    <div className="App">
-      <Button variant="contained">Hello, Atomic Signals Developers</Button>
-    </div>
-  )
+    <BaseTheme>
+      <RouterApp />
+    </BaseTheme>
+  );
 }
 
-export default App
+export default App;
