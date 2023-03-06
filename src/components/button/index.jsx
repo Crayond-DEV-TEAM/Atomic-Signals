@@ -1,33 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./button.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StyledButton } from './Button.style';
 
-/**
- * Primary UI component for user interaction
- */
-export default function Button({
-  primary,
-  backgroundColor,
-  size,
-  label,
-  ...props
-}) {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
+
+const Button = ({ variant, children, ...restProps }) => {
   return (
-    <button
-      type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
+    <StyledButton variant={variant} {...restProps}>
+      {children}
+    </StyledButton>
   );
-}
+};
+
 
 Button.propTypes = {
   /**
@@ -43,6 +26,14 @@ Button.propTypes = {
    */
   size: PropTypes.oneOf(["small", "medium", "large"]),
   /**
+   * Button Types
+   */
+  variant: PropTypes.oneOf(["contained", "outlined", "disabled"]),
+  /**
+   * Name of the button text
+   */
+  children: PropTypes.string,
+  /**
    * Button contents
    */
   label: PropTypes.string.isRequired,
@@ -55,8 +46,13 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  variant: "contained",
   backgroundColor: null,
   primary: false,
   size: "medium",
   onClick: undefined,
 };
+
+
+
+export default Button;
