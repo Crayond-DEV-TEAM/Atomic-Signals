@@ -10,6 +10,12 @@ const lightTheme = {
       light: "#CEF3E4",
       contrastText: "rgba(0,0,0,0.87)",
     },
+    error: {
+      main: "#F44F5A",
+    },
+    success: {
+      main: "#49C792"
+    }
   },
 };
 
