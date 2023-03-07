@@ -15,7 +15,24 @@ const lightTheme = {
     },
     success: {
       main: "#49C792"
-    }
+    },
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '& $notchedOutline': {
+            borderColor: '#000000', // set your desired idle border color
+          },
+          '&:hover $notchedOutline': {
+            borderColor: '#FF0000', // set your desired hover border color
+          },
+          '&$focused $notchedOutline': {
+            borderColor: '#00FF00', // set your desired focus border color
+          },
+        },
+      },
+    },
   },
 };
 
