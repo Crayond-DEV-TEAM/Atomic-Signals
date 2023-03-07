@@ -13,7 +13,8 @@ export const Contained = Template.bind({});
 Contained.args = {
   label: 'button',
   variant: 'contained',
-  children: 'Button'
+  children: 'Button',
+  disabled: false
 }
 
 export const Outlined = Template.bind({});
@@ -21,5 +22,6 @@ export const Outlined = Template.bind({});
 Outlined.args = {
   label: 'button',
   variant: 'outlined',
-  children: 'Button'
+  children: 'Button',
+  disabled: false
 }

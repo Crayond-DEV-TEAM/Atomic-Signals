@@ -9,6 +9,10 @@ const lightTheme = {
       main: "#49C792",
       light: "#CEF3E4",
       contrastText: "rgba(0,0,0,0.87)",
+      containedHover: "#6CDBAD",
+      outlinedHover: "#EEFBF6",
+      disable: "#B9B9B9",
+      textColor: "#FFFFFF"
     },
     error: {
       main: "#F44F5A",

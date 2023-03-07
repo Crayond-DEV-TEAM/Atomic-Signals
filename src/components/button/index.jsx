@@ -28,7 +28,7 @@ Button.propTypes = {
   /**
    * Button Types
    */
-  variant: PropTypes.oneOf(["contained", "outlined", "disabled"]),
+  variant: PropTypes.oneOf(["contained", "outlined"]),
   /**
    * Name of the button text
    */
