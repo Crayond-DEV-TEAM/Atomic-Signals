@@ -15,6 +15,5 @@ Default.args = {
   variant: 'outlined',
   children: 'Chip',
   disabled: false,
-  subChildren:"3 days"
 }
 
