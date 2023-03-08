@@ -11,4 +11,5 @@ const Template = args => <IosSwitch {...args} />
 export const Switch = Template.bind({});
 
 Switch.args = {
+    disabled: false
 }
