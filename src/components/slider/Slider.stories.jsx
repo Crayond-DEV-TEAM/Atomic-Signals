@@ -12,6 +12,6 @@ const Template = args => <DiscreteSlider {...args} />
 export const Default = Template.bind({});
 
 Default.args = {
- 
+  disabled:false
 }
 
