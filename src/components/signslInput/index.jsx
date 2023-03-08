@@ -23,8 +23,8 @@ const gradeImages = {
     2: <PositiveBicon />,
     3: <PositionCicon />,
 };
-export const SignalInput = ({onChange = () => false, handleClose = () => false, value, fullWidth, error = false, size = "small" }) => {
-  
+export const SignalInput = ({ onChange = () => false, handleClose = () => false, value, fullWidth, error = false, size = "small" }) => {
+
     return (
         <React.Fragment>
             <Box sx={{ position: "relative" }}>
@@ -44,7 +44,7 @@ export const SignalInput = ({onChange = () => false, handleClose = () => false, 
                             <InputAdornment position="start"
                                 sx={SignalInput_style.startAdornmentsx}>
                                 {gradeImages["-1"] ? <NagtiveCicon /> : <PositiveAicon />}
-                                <Divider sx={{...SignalInput_style.dividerSx, borderColor: error ? "#F44F5A":"#CACACA"}} orientation="vertical" variant="middle" flexItem />
+                                <Divider sx={{ ...SignalInput_style.dividerSx, borderColor: error ? "#F44F5A" : "#CACACA" }} orientation="vertical" variant="middle" flexItem />
                             </InputAdornment>
                         ),
                         endAdornment: (
@@ -56,7 +56,7 @@ export const SignalInput = ({onChange = () => false, handleClose = () => false, 
                     variant="outlined"
                 />
                 {
-                        error == true ?
+                    error == true ?
                         <Box sx={SignalInput_style.errorBox}>
                             <Typography sx={SignalInput_style.errorText}>Error text</Typography>
                         </Box> : ""

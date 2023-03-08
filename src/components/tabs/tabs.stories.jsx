@@ -13,7 +13,11 @@ function Template(args) {
 export const Default = Template.bind({});
 Default.args = {
     children: 'TabsChange',
-    size: 'small',
+    tabs:tabLable = [
+        { id: 1,label: "From me (2)"},
+        {id: 2,label: "To me (5)"},
+        {id: 3,label: "Other feedbacks"},
+      ],
 };
 
 
