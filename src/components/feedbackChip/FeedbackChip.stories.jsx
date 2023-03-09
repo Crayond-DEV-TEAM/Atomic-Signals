@@ -12,4 +12,6 @@ const Template = args => <FeedbackChips {...args} />
 export const Default = Template.bind({});
 
 Default.args = {
+  label:"Very good",
+  avatarName:"E"
 }
