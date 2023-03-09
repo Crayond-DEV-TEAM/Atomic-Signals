@@ -4,53 +4,16 @@ import React from 'react';
 import Slider from '@mui/material/Slider';
 import { sliderStyle } from './style';
 
-export function DiscreteSlider({disabled}) {
-
-  const [value, setValue] = React.useState(50);
-  const [name, setName] = React.useState("Neutral")
-  const valuetext = (value) => {
-    return `${value}°C`;
-  }
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  if (newValue > 80) {
-      setName("Impactful")
-    } else {
-      setName("Neutral")
-    }
-  };
-
-  const marks = [
-    {
-      value: 0,
-    },
-    {
-      value: 16,
-    },
-    {
-      value: 33.32,
-    },
-    {
-      value: 49.98,
-    },
-    {
-      value: 66.64,
-    },
-    {
-      value: 83.3,
-    },
-    {
-      value: 99.96,
-    }
-  ];
+export function DiscreteSlider({ disabled, onChange, getAriaValueText, value, marks, step, name, defaultValue }) {
   return (
     <Box sx={{ width: "452px" }}>
-      <Slider sx={{...sliderStyle.lineSx, disabled}}
-        getAriaValueText={valuetext}
+      <Slider sx={sliderStyle.lineSx}
+        getAriaValueText={getAriaValueText}
         marks={marks}
-        step={16.66}
+        step={step}
         value={value}
-        onChange={handleChange}
+        defaultValue={defaultValue}
+        onChange={onChange}
         disabled={disabled}
       />
       <Typography sx={sliderStyle.typeSX}>{name}</Typography>
@@ -61,11 +24,19 @@ export function DiscreteSlider({disabled}) {
 
 
 DiscreteSlider.propTypes = {
-//     children: PropTypes.string,
-disabled: PropTypes.bool,
-//     variant: PropTypes.oneOf(["contained", "outlined"]),
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  marks: PropTypes.array,
+  step: PropTypes.number,
+  defaultValue: PropTypes.number,
+  name: PropTypes.string
+};
 
-
+DiscreteSlider.defaultProps = {
+  name: "Neutral",
+  onChange: undefined,
+  defaultValue: 49.98,
+  step: 16.66,
 };
 
 export default DiscreteSlider;
