@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TextField from '@mui/material/TextField';
 import Box from "@mui/material/Box";
-import { SignalInput_style } from "./style";
+import { ErrorBox, ErrorText,DividerLine,InputAdornmentFeild,TextFieldInput } from "./style";
 import DeleteIcon from "../../assets/deleteIcon";
 import Neutral from "../../assets/neutral";
 import NegativeAicon from "../../assets/negativeA";
@@ -11,8 +10,6 @@ import NagtiveCicon from "../../assets/negativeC";
 import PositiveBicon from "../../assets/positiveB";
 import PositiveAicon from "../../assets/positiveA";
 import PositionCicon from "../../assets/PositiveCicon";
-import Typography from "@mui/material/Typography";
-import { Divider, InputAdornment } from "@mui/material";
 
 const gradeImages = {
     "-3": <NegativeAicon />,
@@ -29,10 +26,9 @@ export const SignalInput = ({onChange = () => false, handleClose = () => false, 
         <React.Fragment>
             <Box sx={{ position: "relative" }}>
 
-                <TextField
+                <TextFieldInput
                     gradeImages={gradeImages}
                     fullWidth={fullWidth}
-                    sx={SignalInput_style.SignalInputStyled}
                     id="SignalInput"
                     size={size}
                     onChange={onChange}
@@ -41,25 +37,24 @@ export const SignalInput = ({onChange = () => false, handleClose = () => false, 
                     placeHolder="Type signal name"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start"
-                                sx={SignalInput_style.startAdornmentsx}>
-                                {gradeImages["-1"] ? <NagtiveCicon /> : <PositiveAicon />}
-                                <Divider sx={{...SignalInput_style.dividerSx, borderColor: error ? "#F44F5A":"#CACACA"}} orientation="vertical" variant="middle" flexItem />
-                            </InputAdornment>
+                            <InputAdornmentFeild position="start">
+                                 {gradeImages["-1"] ? <NagtiveCicon /> : <PositiveAicon />}
+                               <DividerLine  sx={{ borderColor: error ? "#F44F5A":"#CACACA"}} orientation="vertical" variant="middle" flexItem />
+                            </InputAdornmentFeild>
                         ),
                         endAdornment: (
-                            <InputAdornment position="start" onClick={handleClose} sx={{ cursor: "pointer" }}>
+                            <InputAdornmentFeild  position="start" onClick={handleClose} sx={{ cursor: "pointer" }}>
                                 <DeleteIcon />
-                            </InputAdornment>
+                            </InputAdornmentFeild>
                         ),
                     }}
                     variant="outlined"
                 />
                 {
                         error == true ?
-                        <Box sx={SignalInput_style.errorBox}>
-                            <Typography sx={SignalInput_style.errorText}>Error text</Typography>
-                        </Box> : ""
+                        <ErrorBox>
+                            <ErrorText >Error text</ErrorText>
+                        </ErrorBox> : ""
                 }
             </Box>
 
