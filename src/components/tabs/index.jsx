@@ -1,10 +1,6 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
 // import TabPanel from '@mui/lab/TabPanel';
-import { Tab_style } from "./style";
+import { ContainerBox, TabBox, TabComponent, TabContextTabs, TabListComponent } from "./style";
 import PropTypes from "prop-types";
 
 
@@ -29,32 +25,30 @@ export const TabsChange = ({ disabled, lable }) => {
     setValue(newValue);
   };
   return (
-    <React.Fragment>
-      <Box sx={{ width: '100%' }}>
-        <TabContext value={value}>
-          <Box sx={Tab_style.tabContaier}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+      <TabBox>
+        <TabContextTabs value={value}>
+          <ContainerBox>
+            <TabListComponent onChange={handleChange} aria-label="lab API tabs example">
               {
                 tabLable.map((tab, index) => (
-                  <Tab label={tab?.label} value={tab?.id} sx={{ ...Tab_style.tabLableSx, color: disabled === true ? "#B9B9B9" : "" }} key={index} />
+                  <TabComponent label={tab?.label} value={tab?.id} sx={{color: disabled === true ? "#B9B9B9" : "" }} key={index} />
                 ))
               }
-            </TabList>
-          </Box>
+            </TabListComponent>
+          </ContainerBox>
           {/* <TabPanel value="1">Item One</TabPanel>
         <TabPanel value="2">Item Two</TabPanel>
         <TabPanel value="3">Item Three</TabPanel> */}
-        </TabContext>
-      </Box>
+        </TabContextTabs>
+      </TabBox>
 
-    </React.Fragment>
   )
 }
 
 TabsChange.propTypes = {
-  disabled: PropTypes.bool,
+   disabled: PropTypes.bool,
 
-  tabLable: PropTypes.arrayOf(
+   tabLable: PropTypes.arrayOf(
 
     PropTypes.shape({
       label: PropTypes.string,
