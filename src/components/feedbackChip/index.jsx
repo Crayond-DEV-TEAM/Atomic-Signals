@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import { FeedbackChipSX } from './style';
+import { StyledAvatar, StyledFeedbackChip } from './style';
 
 
 
@@ -11,8 +9,8 @@ const FeedbackChips = ({ label, avatarName, onChange }) => {
 
   return (
     <Stack direction="row" spacing={1}>
-      <Chip onChange={onChange}
-        avatar={<Avatar sx={FeedbackChipSX.avatarSx}>{avatarName}</Avatar>}
+      <StyledFeedbackChip onChange={onChange}
+        avatar={<StyledAvatar>{avatarName}</StyledAvatar>}
         label={label} />
     </Stack>
   )
