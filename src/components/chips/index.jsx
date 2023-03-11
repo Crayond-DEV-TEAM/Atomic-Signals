@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Chip from '@mui/material/Chip';
-import { chipStyle } from './style';
+import { StyledChip } from './style';
 import { Box } from '@mui/material';
 
 export function Chips({ variant, disabled, children = "", ...rest }) {
 
     return (
         <Box>
-            <Chip disabled={disabled} variant={variant} sx={chipStyle.boxSx} {...rest}>
+            <StyledChip disabled={disabled} variant={variant} {...rest}>
                 {children}
-            </Chip>
+            </StyledChip>
         </Box >
     );
 }
