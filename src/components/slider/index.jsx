@@ -1,13 +1,12 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Slider from '@mui/material/Slider';
-import { sliderStyle } from './style';
+import { StyledSlider, StyledTypography } from './style';
 
 export function DiscreteSlider({ disabled, onChange, getAriaValueText, value, marks, step, name, defaultValue }) {
   return (
     <Box sx={{ width: "452px" }}>
-      <Slider sx={sliderStyle.lineSx}
+      <StyledSlider
         getAriaValueText={getAriaValueText}
         marks={marks}
         step={step}
@@ -16,7 +15,7 @@ export function DiscreteSlider({ disabled, onChange, getAriaValueText, value, ma
         onChange={onChange}
         disabled={disabled}
       />
-      <Typography sx={sliderStyle.typeSX}>{name}</Typography>
+      <StyledTypography>{name}</StyledTypography>
     </Box>
   )
 }

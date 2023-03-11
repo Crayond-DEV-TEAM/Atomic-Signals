@@ -1,5 +1,6 @@
-export const sliderStyle = {
-    lineSx: {
+import { Slider, styled, Typography } from '@mui/material';
+
+export const StyledSlider =styled(Slider)(() => ({
         borderRadius: "20px",
         color: 'black',
         '& .MuiSlider-track': {
@@ -12,19 +13,6 @@ export const sliderStyle = {
             opacity: 1,
             height: "8px"
         },
-        //     '& .MuiSlider-thumb': {
-        //         height: 23,
-        //         width: 23,
-        //         backgroundColor: '#353448',
-        //         border: '3px solid #FFFFFF',
-        //         '& .airbnb-bar': {
-        //             height: 9,
-        //             width: 10,
-        //             backgroundColor: '#fff',
-        //             marginLeft: 1,
-        //             marginRight: 1,
-        //           },
-        // },
         '& .MuiSlider-thumb': {
             height: "32px",
             width: "32px",
@@ -49,10 +37,11 @@ export const sliderStyle = {
         },
         '& .Mui-disabled':{
             background:"red",
-        },
+        }
+    }))
 
-    },
-    typeSX: {
+
+    export const StyledTypography =styled(Typography)(() => ({
         display: "flex",
         justifyContent: "center",
         marginTop: "3px",
@@ -60,6 +49,4 @@ export const sliderStyle = {
         fontSize: "14px",
         color: "#353448",
         lineHeight: "8px"
-
-    }
-}
+    }))
