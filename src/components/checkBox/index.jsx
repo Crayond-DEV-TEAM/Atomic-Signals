@@ -2,14 +2,13 @@ import React from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import PropTypes from 'prop-types';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import { CheckboxStyle } from './style';
+import { StyledCheckbox } from './style';
 
 const CheckboxLabel = (props) => {
     const {label, disabled,checked, onChange }=props;
     return (
         <FormGroup>
-            <FormControlLabel checked={checked} onChange={onChange} control={<Checkbox disabled={disabled} sx={CheckboxStyle.boxSX} />} label={label} />
+            <FormControlLabel checked={checked} onChange={onChange} control={<StyledCheckbox disabled={disabled}/>} label={label} />
         </FormGroup>
     );
 }
