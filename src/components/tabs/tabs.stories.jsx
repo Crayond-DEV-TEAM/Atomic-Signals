@@ -16,3 +16,8 @@ Default.args = {
     disabled:false
 };
 
+export const DisabledTab = Template.bind({});
+DisabledTab.args = {
+    children: 'TabsChange',
+    disabled:true
+};

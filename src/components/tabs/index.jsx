@@ -1,8 +1,7 @@
 import * as React from 'react';
-// import TabPanel from '@mui/lab/TabPanel';
-import { ContainerBox, TabBox, TabComponent, TabContextTabs, TabListComponent } from "./style";
 import PropTypes from "prop-types";
-
+import Box from '@mui/material/Box';
+import { AntTab, AntTabs, TabBox } from './style';
 
 const tabLable = [
   {
@@ -18,31 +17,28 @@ const tabLable = [
     label: "Other feedbacks"
   },
 ]
-export const TabsChange = ({ disabled, lable }) => {
-  const [value, setValue] = React.useState(1);
+
+
+
+export  const TabsChange =({ disabled = true})=>{
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  return (
-      <TabBox>
-        <TabContextTabs value={value}>
-          <ContainerBox>
-            <TabListComponent onChange={handleChange} aria-label="lab API tabs example">
-              {
-                tabLable.map((tab, index) => (
-                  <TabComponent label={tab?.label} value={tab?.id} sx={{color: disabled === true ? "#B9B9B9" : "" }} key={index} />
-                ))
-              }
-            </TabListComponent>
-          </ContainerBox>
-          {/* <TabPanel value="1">Item One</TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        <TabPanel value="3">Item Three</TabPanel> */}
-        </TabContextTabs>
-      </TabBox>
 
-  )
+  return (
+    <TabBox>
+      <Box sx={{ bgcolor: '#fff' }}>
+        <AntTabs value={value} onChange={handleChange} aria-label="ant example">
+          {
+            tabLable.map((tab,i)=>(<AntTab key={i} label={tab?.label}  sx={{color: disabled === true ? "#B9B9B9" : "" }}/>))
+          }
+        </AntTabs>
+        <Box sx={{ p: 3 }} />
+      </Box>
+   </TabBox>
+  );
 }
 
 TabsChange.propTypes = {

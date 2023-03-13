@@ -1,38 +1,31 @@
-import TabContext from '@mui/lab/TabContext';
 import { Box, styled } from '@mui/material';
-import TabList from '@mui/lab/TabList';
+import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-// import TabPanel from '@mui/lab/TabPanel';
-
-export const ContainerBox = styled(Box)(({ theme }) => ({
-    borderBottom: 1,
-    borderColor: 'divider',
-}))
-
 export const TabBox = styled(Box)(({ theme }) => ({
     width: '100%'
 }))
 
-export const TabComponent = styled(Tab)(({ theme }) => ({
-    textTransform: "math-auto",
-    fontSize: '14px',
+export const AntTabs = styled(Tabs)(({ theme }) => ({
+    borderBottom: '1px solid #e8e8e8',
+    '& .MuiTabs-indicator': {
+      backgroundColor: "#665CD7",
+      borderRadius: "2px 2px 0px 0px",
+      height: "2px",
+    },
+    '&.MuiButtonBase-root-MuiTab-root':{
+      padding:"0px 0px"
+    }
+}))
+
+export const AntTab = styled(Tab)(({ theme }) => ({
+    textTransform: 'none',
+    color: '#71707E',
     '&.Mui-selected': {
         color: '#353448',
         fontSize: '14px',
         fontWeight: "500",
         left: "1px",
     },
-    "& .MuiTabs-indicator": {
-        backgroundColor: "#665CD7",
-        padding: "1px",
-        height: "2.3px",
-    }
 }))
 
-export const TabContextTabs = styled(TabContext)(({ theme }) => ({
-}))
-
-export const TabListComponent = styled(TabList)(({ theme }) => ({
-}))
-    // export const TabPanelComponent = styled(TabPanel )(({ theme }) => ({
-    // }))
+ 
