@@ -1,19 +1,18 @@
-import  Chips from ".";
+import { SelectedChips } from ".";
 
 
 export default {
   title: 'Components/Chips',
-  component: Chips
+  component: SelectedChips
 };
 
-const Template = args => <Chips {...args} />
+const Template = args => <SelectedChips {...args} />
 
 export const Default = Template.bind({});
 
 Default.args = {
   label: 'Chips',
-  variant: 'outlined',
-  children: 'Chip',
+  children: 'Chips',
   disabled: false,
 }
 

@@ -1,35 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledChip } from './style';
-import { Box } from '@mui/material';
+import { StyledSelectChip } from './style';
+import { Box, ToggleButtonGroup } from '@mui/material';
 
-export function Chips({ variant, disabled, children = "", ...rest }) {
+export function SelectedChips({ disabled, onChange, selected, children = "", ...rest }) {
+
 
     return (
         <Box>
-            <StyledChip disabled={disabled} variant={variant} {...rest}>
-                {children}
-            </StyledChip>
+            <ToggleButtonGroup onChange={onChange}>
+                <StyledSelectChip disabled={disabled} {...rest} selected={selected}>{children}</StyledSelectChip>
+            </ToggleButtonGroup>
         </Box >
     );
 }
 
 
 
-Chips.propTypes = {
+SelectedChips.propTypes = {
     children: PropTypes.string,
     label: PropTypes.string.isRequired,
-    variant: PropTypes.oneOf(["contained", "outlined"]),
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    selected: PropTypes.bool,
+    onChange:PropTypes.func
 
 };
 
-Chips.defaultProps = {
-    variant: "outlined",
+SelectedChips.defaultProps = {
     disabled: false,
+    selected:false
 };
 
 
-export default Chips;
+export default SelectedChips;
 
 
