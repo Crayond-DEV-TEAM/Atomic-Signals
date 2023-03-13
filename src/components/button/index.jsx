@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyledButton } from './Button.style';
-
+import React from "react";
+import PropTypes from "prop-types";
+import { StyledButton } from "./Button.style";
 
 const Button = ({ variant, children, ...restProps }) => {
   return (
@@ -11,16 +10,7 @@ const Button = ({ variant, children, ...restProps }) => {
   );
 };
 
-
 Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
   /**
    * How large should the button be?
    */
@@ -32,27 +22,24 @@ Button.propTypes = {
   /**
    * Name of the button text
    */
-  children: PropTypes.string,
-  /**
-   * Button contents
-   */
-  label: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   /**
    * Optional click handler
    */
   onClick: PropTypes.func,
-
-  startDate: PropTypes.string,
+  /**
+   * Is the button disabled?
+   */
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
+  children: "Button",
   variant: "contained",
-  backgroundColor: null,
   primary: false,
   size: "medium",
   onClick: undefined,
+  disabled: false,
 };
-
-
 
 export default Button;
