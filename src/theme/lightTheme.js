@@ -34,6 +34,9 @@ const lightTheme = {
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#49C792', // set your desired focus border color
           },
+          '&.Mui-active .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#EBEBEB'
+          },
           '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
             borderColor: '#CACACA'
           }
