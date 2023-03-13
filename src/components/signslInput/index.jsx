@@ -1,78 +1,106 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
-import { ErrorBox, ErrorText,DividerLine,InputAdornmentFeild,TextFieldInput } from "./style";
+import {
+  ErrorBox,
+  ErrorText,
+  DividerLine,
+  InputAdornmentFeild,
+  TextFieldInput,
+} from "./style";
 import DeleteIcon from "../../assets/deleteIcon";
 import Neutral from "../../assets/neutral";
 import NegativeAicon from "../../assets/negativeA";
-import NagtiveBicon from "../../assets/negativeB";
-import NagtiveCicon from "../../assets/negativeC";
+import NegtiveBicon from "../../assets/negativeB";
+import NegtiveCicon from "../../assets/negativeC";
 import PositiveBicon from "../../assets/positiveB";
 import PositiveAicon from "../../assets/positiveA";
 import PositionCicon from "../../assets/PositiveCicon";
 
 const gradeImages = {
-    "-3": <NegativeAicon />,
-    "-2": <NagtiveBicon />,
-    "-1": <NagtiveCicon />,
-    0: <Neutral />,
-    1: <PositiveAicon />,
-    2: <PositiveBicon />,
-    3: <PositionCicon />,
+  "-3": <NegtiveCicon />,
+  "-2": <NegtiveBicon />,
+  "-1": <NegativeAicon />,
+  0: <Neutral />,
+  1: <PositiveAicon />,
+  2: <PositiveBicon />,
+  3: <PositionCicon />,
 };
-export const SignalInput = ({onChange = () => false, handleClose = () => false, value, fullWidth, error = false, size = "small" }) => {
-  
-    return (
-        <React.Fragment>
-            <Box sx={{ position: "relative" }}>
 
-                <TextFieldInput
-                    gradeImages={gradeImages}
-                    fullWidth={fullWidth}
-                    id="SignalInput"
-                    size={size}
-                    onChange={onChange}
-                    value={value}
-                    error={error}
-                    placeHolder="Type signal name"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornmentFeild position="start">
-                                 {gradeImages["-1"] ? <NagtiveCicon /> : <PositiveAicon />}
-                               <DividerLine  sx={{ borderColor: error ? "#F44F5A":"#CACACA"}} orientation="vertical" variant="middle" flexItem />
-                            </InputAdornmentFeild>
-                        ),
-                        endAdornment: (
-                            <InputAdornmentFeild  position="start" onClick={handleClose} sx={{ cursor: "pointer" }}>
-                                <DeleteIcon />
-                            </InputAdornmentFeild>
-                        ),
-                    }}
-                    variant="outlined"
+export const SignalInput = ({
+  id,
+  placeholder,
+  grade,
+  value,
+  onChange,
+  onClear,
+  error,
+  fullWidth,
+}) => {
+  return (
+    <React.Fragment>
+      <Box sx={{ position: "relative" }}>
+        <TextFieldInput
+          id={id}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          error={error}
+          fullWidth={fullWidth}
+          InputProps={{
+            startAdornment: (
+              <InputAdornmentFeild position="start">
+                {grade !== undefined && gradeImages[grade]}
+                <DividerLine
+                  sx={{ borderColor: error ? "#F44F5A" : "#CACACA" }}
+                  orientation="vertical"
+                  variant="middle"
+                  flexItem
                 />
-                {
-                        error == true ?
-                        <ErrorBox>
-                            <ErrorText >Error text</ErrorText>
-                        </ErrorBox> : ""
-                }
-            </Box>
-
-        </React.Fragment>
-    )
-}
+              </InputAdornmentFeild>
+            ),
+            endAdornment: value.length ? (
+              <InputAdornmentFeild
+                position="start"
+                onClick={onClear}
+                sx={{ cursor: "pointer" }}
+              >
+                <DeleteIcon />
+              </InputAdornmentFeild>
+            ) : null,
+          }}
+          variant="outlined"
+        />
+        {error == true ? (
+          <ErrorBox>
+            <ErrorText>Error text</ErrorText>
+          </ErrorBox>
+        ) : (
+          ""
+        )}
+      </Box>
+    </React.Fragment>
+  );
+};
 
 SignalInput.propTypes = {
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  grade: PropTypes.oneOf([-3, -2, -1, 0, 1, 2, 3]).isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  onClear: PropTypes.func,
+  error: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+};
 
-    size: PropTypes.oneOf(["small", "medium", "large"]),
-
-    error: PropTypes.bool,
-
-    fullWidth: PropTypes.bool,
-
-    value: PropTypes.string,
-
-    handleClose: PropTypes.func,
-
-    onChange: PropTypes.func,
+SignalInput.defaultProps = {
+  id: "SignalInput",
+  placeholder: "Type signal name",
+  grade: 0,
+  value: "",
+  onChange: () => {},
+  onClear: () => {},
+  error: "",
+  fullWidth: false,
 };

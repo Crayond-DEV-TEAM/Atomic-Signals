@@ -1,32 +1,21 @@
-import * as React from 'react';
-import { SignalInput } from './index';
+import * as React from "react";
+import { SignalInput } from "./index";
 
 export default {
-    title: 'components/SignalInput',
-    component: SignalInput,
+  title: "components/SignalInput",
+  component: SignalInput,
 };
 
-function Template(args) {
-    return React.createElement(SignalInput, { ...args });
-}
+const Template = (args) => <SignalInput {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    children: 'SignalInput',
-    size: 'small',
-
+  id: "",
+  placeholder: "",
+  grade: 0,
+  value: "",
+  onChange: () => {},
+  onClear: () => {},
+  error: "",
+  fullWidth: false,
 };
-Default.args = {
-    size: 'small',
-    label: 'SignalInput',
-};
-Default.args = {
-    label: 'SignalInput',
-    size: 'small',
-};
-
-Default.args = {
-    size: 'large',
-    label: 'SignalInput',
-};
-
