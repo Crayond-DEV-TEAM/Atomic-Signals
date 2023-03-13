@@ -4,8 +4,20 @@ import { AvatarComponent, BottomButton, CardBox, CenterAlignBox, CollapsedSubTit
 import { Box, Typography } from "@mui/material";
 import ThumbIcon from "../../assets/thumbIcon";
 import DoubleTick from "../../assets/doubleTick";
-import { width } from "@mui/system";
 
+const cardText ={
+    Name:"Steven",
+    Date:"31 Jan 2023, 01:31 PM",
+    titt1:"Feedback reason will be displayed here",
+    titt2:"Your way of presenting the topic was very good in the client meeting",
+    profileText1:"Response submitted",
+    profileText2:"Collapse",
+    profileText3:"Thanks! I'll try to improve further",
+    profileText4:"Happy to hear it from you.",
+    btnTit:"Submit your response",
+    btnTit2:"View",
+    btnText3:'Submit your response'
+}
 export const FeedbackCards = ({ view, showCollapsed, handleSubmitResponse = () => false, handleView = () => false, handleCollaped = () => false }) => {
 
     // const [showCollapsed, setCollapsed] = React.useState(false);
@@ -32,35 +44,27 @@ export const FeedbackCards = ({ view, showCollapsed, handleSubmitResponse = () =
                         <ProfileChildBox >
                             <AvatarComponent alt="Avatar" src="https://variety.com/wp-content/uploads/2022/11/Screen-Shot-2022-11-02-at-8.33.52-AM.png?w=681&h=383&crop=1" />
                             <Box ml={1}>
-                                <ResponseName>Henry</ResponseName>
-                                <ResponseDateTime>31 Jan 2023, 01:31 PM</ResponseDateTime>
+                                <ResponseName>{cardText.Name}</ResponseName>
+                                <ResponseDateTime>{cardText.Date}</ResponseDateTime>
                             </Box>
                         </ProfileChildBox>
 
-                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                          
-                          
-                            <Box sx={{ display: 'flex', justifyContent: "center", alignItems:"center", transition: "transform 550ms", ":hover": { "&.MuiBox-root .MuiTypography-root": { display: "block" }, transform: "translateX(-20px)", backgroundColor: "#F5F5F5", borderRadius: "50px", height: "25px" ,paddingRight:"90px"} }}>
+                      {/* here chips componenets */}
+                        <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: "center", height: "22px", borderRadius: "50px", backgroundColor: "#F5F5F5" }}>
 
-                                <Box  ml={.2} mr={.3} sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "22px", width: "22px", borderRadius: "50px", backgroundColor: "#007C32" }}>
-                                    <Typography color={"#ffff"} fontWeight={"600"} fontSize={"14px"}>H</Typography>
-                                </Box>
-                                <Box mr={"0px"} >
-                                    <Typography zIndex={-1} fontSize={"12px"}>I like You</Typography>
-                                </Box>
+                            <Box ml={.2} mr={.3} sx={{ ":hover": { transform: "translateX(-20px)" }, transition: "transform 550ms", display: 'flex', justifyContent: "center", alignItems: "center", height: "20px", width: "20px", borderRadius: "50px", backgroundColor: "#007C32" }}>
+                                <Typography color={"#ffff"} fontWeight={"600"} fontSize={"14px"}>H</Typography>
                             </Box>
-                            <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "22px", borderRadius: "50px",paddingLeft:"15px", backgroundColor:"#F5F5F5"}}>
 
                             <Typography mr={.5} fontSize={"12px"}>very good</Typography>
-
-                            </Box>
-
                         </Box>
+
+
                     </ProfileBox>
 
                     <Box mt={1} minHeight={view === true ? "0px" : "70px"} mb={1}>
-                        <ResponseTitle >Feedback reason will be displayed here</ResponseTitle>
-                        <ResponseSubTitle >Your way of presenting the topic was very good in the client meeting</ResponseSubTitle>
+                        <ResponseTitle >{cardText.titt1}</ResponseTitle>
+                        <ResponseSubTitle >{cardText.titt2}</ResponseSubTitle>
                     </Box>
                     {
                         view ?
@@ -70,21 +74,21 @@ export const FeedbackCards = ({ view, showCollapsed, handleSubmitResponse = () =
                                         <Box mr={1}>
                                             <DoubleTick />
                                         </Box>
-                                        <CollapsedTitle >Response submitted</CollapsedTitle>
-                                        <CollapsedSubTitle >31 Jan 2023, 01:30 PM</CollapsedSubTitle>
+                                        <CollapsedTitle ></CollapsedTitle>
+                                        <CollapsedSubTitle >{cardText.Date}</CollapsedSubTitle>
                                     </LineRowBox>
                                     <Box sx={{ cursor: "pointer" }} onClick={() => handleCollaped()}>
-                                        <ResponseButtonLable >Collapse</ResponseButtonLable>
+                                        <ResponseButtonLable >{cardText.profileText2}</ResponseButtonLable>
                                     </Box>
                                 </ExpandBox>
 
                                 <LineRowBox >
-                                    <ResponseTitle >Thanks! I'll try to improve further</ResponseTitle>
+                                    <ResponseTitle >{cardText.profileText3}</ResponseTitle>
                                     <Box ml={1} sx={{ alignItems: "center" }}>
                                         <ThumbIcon />
                                     </Box>
                                 </LineRowBox>
-                                <ResponseSubTitle >Happy to hear it from you.</ResponseSubTitle>
+                                <ResponseSubTitle >{cardText.profileText4}</ResponseSubTitle>
                             </Box>
                             : ""
                     }
@@ -99,14 +103,14 @@ export const FeedbackCards = ({ view, showCollapsed, handleSubmitResponse = () =
                                             <Box mr={1}>
                                                 <DoubleTick />
                                             </Box>
-                                            <ResponseButtonLable>Response submitted</ResponseButtonLable>
+                                            <ResponseButtonLable>{cardText.btnTit}</ResponseButtonLable>
                                         </CenterAlignBox>
                                         <Box onClick={() => handleView()}>
-                                            <ResponseButtonLable >View</ResponseButtonLable>
+                                            <ResponseButtonLable >{cardText.btnText3}</ResponseButtonLable>
                                         </Box>
                                     </ResponseCollapsedBox> :
                                     <SubmitResponseButton onClick={() => handleSubmitResponse()}>
-                                        <SubmitResponseButtonLable  >Submit your response</SubmitResponseButtonLable>
+                                        <SubmitResponseButtonLable  >{cardText.btnText3}</SubmitResponseButtonLable>
                                     </SubmitResponseButton>
                             }
                         </BottomButton> : ""
