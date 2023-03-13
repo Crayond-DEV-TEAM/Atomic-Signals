@@ -7,8 +7,6 @@ import Typography from '@mui/material/Typography'
 
 export const TextFieldInput = styled(TextField)(({ theme }) => ({
 overflow: "hidden",
-borderRadius: '4px',
-border: "1px solid #EBEBEB",
 '& .MuiInputBase-root': {
     paddingLeft: "7px",
     paddingRight: "3px"
@@ -18,14 +16,15 @@ border: "1px solid #EBEBEB",
 },
 '& .MuiOutlinedInput-root': {
     '&:hover fieldset': {
-        border: "1.5px solid #CACACA",
+        borderColor: "none",
     },
 },
 "& .MuiOutlinedInput-root.Mui-focused": {
     "& .MuiDivider-root": {
-        borderRight: "1.5px solid #49C792"
+        borderRight: "1.3px solid #49C792"
     }
 },
+
 }))
 
 export const InputAdornmentFeild = styled(InputAdornment)(({ theme }) => ({
@@ -39,7 +38,7 @@ export const DividerLine = styled(Divider)(({ theme }) => ({
     marginLeft: "6px",
     height: '54px',
     width: '4px',
-    marginTop: '-11px',
+    marginTop: '-11px'
 }))
 export const ErrorText = styled(Typography)(({ theme }) => ({
        fontSize: "11px",
@@ -47,7 +46,7 @@ export const ErrorText = styled(Typography)(({ theme }) => ({
 }))
 export const ErrorBox = styled(Box)(({ theme }) => ({
     position: "absolute",
-    top: "26px",
+    bottom: "1px",
     left: "82px"
 }))
 

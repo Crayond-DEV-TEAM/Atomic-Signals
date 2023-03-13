@@ -16,6 +16,8 @@ import NegtiveCicon from "../../assets/negativeC";
 import PositiveBicon from "../../assets/positiveB";
 import PositiveAicon from "../../assets/positiveA";
 import PositionCicon from "../../assets/PositiveCicon";
+import { size } from "lodash";
+import { Typography } from "@mui/material";
 
 const gradeImages = {
   "-3": <NegtiveCicon />,
@@ -34,7 +36,7 @@ export const SignalInput = ({
   value,
   onChange,
   onClear,
-  error,
+  error=true,
   fullWidth,
 }) => {
   return (
