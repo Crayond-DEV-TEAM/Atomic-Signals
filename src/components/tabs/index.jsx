@@ -48,7 +48,7 @@ TabsChange.propTypes = {
 
     PropTypes.shape({
       label: PropTypes.string,
-      value: PropTypes.number,
+      id: PropTypes.number,
 
     })
   ),
