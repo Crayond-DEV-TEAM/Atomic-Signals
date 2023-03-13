@@ -1,14 +1,14 @@
-import  CheckboxLabel from ".";
+import  Checkbox from ".";
 
 
 export default {
-  title: 'Componets/CheckboxLabel',
-  component: CheckboxLabel,
+  title: 'Componets/Checkbox',
+  component: Checkbox,
  
 
 };
 
-const Template = args => <CheckboxLabel {...args} />
+const Template = args => <Checkbox {...args} />
 
 export const Default = Template.bind({});
 
