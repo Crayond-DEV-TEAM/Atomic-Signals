@@ -13,5 +13,6 @@ export const Default = Template.bind({});
 
 Default.args = {
   label:"Very good",
-  avatarName:"E"
+  avatarName:"E",
+  feedback:"Efficiency"
 }
