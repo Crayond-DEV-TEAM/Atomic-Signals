@@ -19,7 +19,27 @@ const lightTheme = {
     },
     success: {
       main: "#49C792"
-    }
+    },
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#EBEBEB', // set your desired idle border color
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#CACACA', // set your desired hover border color
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#49C792', // set your desired focus border color
+          },
+          '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#CACACA'
+          }
+        },
+      },
+    },
   },
 };
 

@@ -12,7 +12,7 @@ export const decorators = [
   (Story) => {
     const muiTheme = useMemo(() =>
       createTheme({
-        ...lightTheme
+        ...lightTheme,
       })
     );
 
